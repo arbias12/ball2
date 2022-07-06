@@ -37,7 +37,7 @@ class _SpielerState extends State<SpielerPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
+      body: SingleChildScrollView(child: Center(
         child: Column(
           children: [
             sensorView(context),
@@ -47,6 +47,7 @@ class _SpielerState extends State<SpielerPage>{
           ],
         ),
       ),
+      )
     );
   }
 

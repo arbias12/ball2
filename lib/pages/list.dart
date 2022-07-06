@@ -26,7 +26,7 @@ class _ListStatus extends State<Listpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
+      body: SingleChildScrollView(child: Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: AlleSpieler()
@@ -48,6 +48,7 @@ class _ListStatus extends State<Listpage> {
                     ))
                 .toList()),
       ),
+      )
     );
   }
 

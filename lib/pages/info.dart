@@ -26,7 +26,7 @@ class _InfoStatus extends State<InfoPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
+      body: SingleChildScrollView(child: Center(
           child: Center(
             child: Column(children: [
               Text(
@@ -54,6 +54,7 @@ class _InfoStatus extends State<InfoPage>{
 
           ),
       ),
+      )
     );
   }
 

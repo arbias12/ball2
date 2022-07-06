@@ -18,6 +18,9 @@ class KonfigurationsPage extends StatefulWidget {
 }
 
 class _KonfigurationsPageState extends State<KonfigurationsPage>{
+  int _zaheler = 0;
+
+
   forceRedraw() {
     setState(() => {});
   }
@@ -71,24 +74,32 @@ class _KonfigurationsPageState extends State<KonfigurationsPage>{
             )
           ],
         ),
-        body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start, mainAxisSize: MainAxisSize.max, children: [SizedBox(height: 25,), Image.asset('images/titelbild.png', height: 500,), SizedBox(height: 55,),
-          SizedBox(height: 25,),
+        body: SingleChildScrollView(child: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, mainAxisSize: MainAxisSize.max, children: [SizedBox(height: 5,), Image.asset('images/titelbild.png', height: 500,), SizedBox(height: 55,),
+          SizedBox(height: 5,),
             ButtonTheme(
               minWidth: MediaQuery.of(context).size.width * 0.7,
               buttonColor: Theme.of(context).primaryColorLight,
               child: Column(children:[
                   ElevatedButton(
-                    onPressed: () {
+              style: ElevatedButton.styleFrom(minimumSize:Size(120, 50)),
+                    onPressed:()  {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                            return GamePage();
+                            if(_zaheler == 0) {
+                              _zaheler++;
+                              return DropdownDemo();
+                            }else{
+                              return MyApp();
+                            }
                           })
                       );
                     },
-                    child: Text("Spielen", style: TextStyle(fontSize: 30),),
+                    child: Text("Spielen", style: TextStyle(fontSize: 10),),
                   ),
+                SizedBox(height: 15,),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(minimumSize:Size(120, 50)),
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
@@ -96,7 +107,7 @@ class _KonfigurationsPageState extends State<KonfigurationsPage>{
                         })
                     );
                   },
-                  child: Text("Konfiguration", style: TextStyle(fontSize: 30),),
+                  child: Text("Konfiguration", style: TextStyle(fontSize: 10),),
                 )
             ]
               ),
@@ -105,6 +116,12 @@ class _KonfigurationsPageState extends State<KonfigurationsPage>{
 
         ],)
         )
+        )
     );
+  }
+  void increment(){
+    setState(() {
+      _zaheler++;
+    });
   }
 }
