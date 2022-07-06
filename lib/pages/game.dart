@@ -1,6 +1,7 @@
 
 import 'package:ball2/pages/info.dart';
 import 'package:ball2/pages/list.dart';
+import 'package:ball2/pages/spiel.dart';
 import 'package:shake/shake.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -69,7 +70,20 @@ class _GamePageState extends State<GamePage>{
           ],
         ),
         body: Center(
-        child: Column(children: [Image.asset('images/titelbild.png', height: 500,), Text("Start Game", style: TextStyle(fontSize: 25), textAlign: TextAlign.center)],)
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, mainAxisSize: MainAxisSize.max, children: [SizedBox(height: 25,), Image.asset('images/titelbild.png', height: 500,), SizedBox(height: 55,),
+          Text("Start Game", style: TextStyle(fontSize: 25), textAlign: TextAlign.center),
+          SizedBox(height: 25,),
+          IconButton(
+              icon: Icon(Icons.not_started),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) {
+                      return SpielPage();
+                    })
+                );
+              }
+          )
+        ],)
         )
     );
   }
