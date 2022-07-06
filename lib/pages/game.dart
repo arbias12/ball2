@@ -1,4 +1,5 @@
 
+import 'package:ball2/pages/auswahl2.dart';
 import 'package:ball2/pages/info.dart';
 import 'package:ball2/pages/list.dart';
 import 'package:ball2/pages/spiel.dart';
@@ -48,7 +49,7 @@ class _GamePageState extends State<GamePage>{
 
             ),
             IconButton(
-                icon: Icon(Icons.settings),
+                icon: Icon(Icons.phone_android),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) {
@@ -71,18 +72,23 @@ class _GamePageState extends State<GamePage>{
         ),
         body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, mainAxisSize: MainAxisSize.max, children: [SizedBox(height: 25,), Image.asset('images/titelbild.png', height: 500,), SizedBox(height: 55,),
-          Text("Start Game", style: TextStyle(fontSize: 25), textAlign: TextAlign.center),
           SizedBox(height: 25,),
-          IconButton(
-              icon: Icon(Icons.not_started),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) {
-                      return SpielPage();
-                    })
-                );
-              }
-          )
+            ButtonTheme(
+              minWidth: MediaQuery.of(context).size.width * 0.7,
+              buttonColor: Theme.of(context).primaryColorLight,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) {
+                        return DropdownDemo();
+                      })
+                  );
+                },
+                child: Text("Continue", style: TextStyle(fontSize: 30),),
+              ),
+            ),
+
+
         ],)
         )
     );
