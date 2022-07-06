@@ -1,14 +1,14 @@
-import 'package:ball2/pages/game.dart';
+import 'package:ball2/pages/hauptmenu.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';    //im pubspec.yaml geändert!
 
 import 'package:ball2/model/spieler.dart';
-import 'package:ball2/pages/spieler_page.dart';
+import 'package:ball2/pages/koordinaten.dart';
 
 void main() {
   //initialize data
   AlleSpieler data = AlleSpieler();
-  runApp(SpielerApp(data));  //= new CookieApp()
+  runApp(SpielerApp(data));
 }
 
 class SpielerApp extends StatelessWidget{
@@ -25,7 +25,7 @@ class SpielerApp extends StatelessWidget{
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: GamePage()
+            home: KonfigurationsPage()
         )
     );
   }

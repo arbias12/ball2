@@ -1,5 +1,6 @@
 
-import 'package:ball2/pages/auswahl2.dart';
+import 'package:ball2/pages/game.dart';
+import 'package:ball2/pages/konfiguration.dart';
 import 'package:ball2/pages/info.dart';
 import 'package:ball2/pages/list.dart';
 import 'package:ball2/pages/spiel.dart';
@@ -8,15 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ball2/model/spieler.dart';
-import 'package:ball2/pages/spieler_page.dart';
+import 'package:ball2/pages/koordinaten.dart';
 
-class GamePage extends StatefulWidget {
+class KonfigurationsPage extends StatefulWidget {
   @override
-  _GamePageState createState() => _GamePageState();
+  _KonfigurationsPageState createState() => _KonfigurationsPageState();
 
 }
 
-class _GamePageState extends State<GamePage>{
+class _KonfigurationsPageState extends State<KonfigurationsPage>{
   forceRedraw() {
     setState(() => {});
   }
@@ -76,15 +77,28 @@ class _GamePageState extends State<GamePage>{
             ButtonTheme(
               minWidth: MediaQuery.of(context).size.width * 0.7,
               buttonColor: Theme.of(context).primaryColorLight,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) {
-                        return DropdownDemo();
-                      })
-                  );
-                },
-                child: Text("Continue", style: TextStyle(fontSize: 30),),
+              child: Column(children:[
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                            return GamePage();
+                          })
+                      );
+                    },
+                    child: Text("Spielen", style: TextStyle(fontSize: 30),),
+                  ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                          return DropdownDemo();
+                        })
+                    );
+                  },
+                  child: Text("Konfiguration", style: TextStyle(fontSize: 30),),
+                )
+            ]
               ),
             ),
 
