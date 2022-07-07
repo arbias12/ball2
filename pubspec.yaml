@@ -65,6 +65,7 @@ flutter:
     - images/titelbild.png
     - images/skate.png
     - images/rock.png
+    - images/ball.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
